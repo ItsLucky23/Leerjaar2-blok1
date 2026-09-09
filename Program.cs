@@ -9,3 +9,7 @@ if (invoer == "1")
 {
     Console.WriteLine("Je hebt op 1 geklikt");
 }
+else
+{
+    Console.WriteLine("dat was geen 1");
+}
