@@ -6,3 +6,7 @@ kan intypen.
 starten doe je zo:
 
     dotnet run
+
+De basisuitvoer testen:
+
+    bash tests/smoke-test.sh
