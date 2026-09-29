@@ -1,0 +1,16 @@
+# Console-app (C#/.NET 8) zonder webserver, database of poort.
+# Het programma vraagt één keer om invoer en stopt dan. Hier wordt het gebouwd,
+# één keer gedraaid met "1" als invoer (uitvoer staat in de logs), en daarna
+# blijft de container wachten zodat de omgeving niet als gecrasht geldt.
+programs:
+  app:
+    dir: .
+    mode: docker
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+      DOTNET_NOLOGO: "1"
+    setup: dotnet restore
+    command: sh -c 'dotnet build --no-restore && echo 1 | dotnet run --no-build; exec sleep infinity'
+    port: false
+    timeout: 300
