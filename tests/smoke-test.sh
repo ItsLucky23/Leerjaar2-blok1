@@ -6,7 +6,10 @@ dotnet build Opdracht.csproj --nologo >/dev/null
 
 check() {
     local input="$1" expected="$2" actual
-    actual=$(printf '%s\n' "$input" | dotnet bin/Debug/net8.0/Opdracht.dll)
+    # A sentinel preserves the program's trailing newlines in command substitution.
+    actual=$(printf '%s\n' "$input" | dotnet bin/Debug/net8.0/Opdracht.dll && printf '\034')
+    actual=${actual%$'\034'}
+    expected+=$'\n'
     if [[ "$actual" != "$expected" ]]; then
         printf 'FAIL: input %q: expected %q, got %q\n' "$input" "$expected" "$actual" >&2
         exit 1
