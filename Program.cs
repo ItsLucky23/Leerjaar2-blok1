@@ -3,9 +3,17 @@
 using System;
 
 Console.Write("typ een nummer: ");
-string invoer = Console.ReadLine();
+string? invoer = Console.ReadLine();
 
-if (invoer == "1")
+if (invoer is null)
+{
+    Console.WriteLine("geen invoer");
+}
+else if (!int.TryParse(invoer, out int nummer))
+{
+    Console.WriteLine("dat is geen nummer");
+}
+else if (nummer == 1)
 {
     Console.WriteLine("BOEM!!");
 }
