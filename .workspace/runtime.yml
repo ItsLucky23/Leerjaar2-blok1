@@ -1,4 +1,7 @@
 # Console-app (C#/.NET 8) zonder webserver, database of poort.
+# Geen database: de code (alle branches) slaat niets op, ook geen SQLite.
+# Komt er later SQLite bij, zet het bestand dan via env in de checkout
+# (bv. data/app.db) en voeg het toe aan .gitignore; een service is niet nodig.
 # Het programma vraagt één keer om invoer en stopt dan. Hier wordt het gebouwd,
 # één keer gedraaid met "1" als invoer (uitvoer staat in de logs), en daarna
 # blijft de container wachten zodat de omgeving niet als gecrasht geldt.
