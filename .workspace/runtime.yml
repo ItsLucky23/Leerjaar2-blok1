@@ -11,6 +11,6 @@ programs:
       DOTNET_CLI_TELEMETRY_OPTOUT: "1"
       DOTNET_NOLOGO: "1"
     setup: dotnet restore
-    command: sh -c 'dotnet build --no-restore && echo 1 | dotnet run --no-build || exit 1; exec sleep infinity'
+    command: sh -c 'dotnet build --no-restore && echo 1 | dotnet run --no-build; exec sleep infinity'
     port: false
     timeout: 300
